@@ -1,0 +1,91 @@
+<div class="quiz-area" ng-show="inProgress">
+<div ng-show="!quizOver">
+	
+	<div class="card">
+		<div class="row">
+			<div class="col"><h3 id="question">{{question}}</h3></div>
+		</div>
+	</div>
+	
+	<div class="card">
+		<div class="item item-text-wrap">
+			<div class="row">
+				<div class="col center">
+					<img src={{image1}} width="70%"/>
+				</div>
+				<div class="col center">
+					<img src={{image2}} width="70%"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<label class="button button-dark center"><input type="radio" name="answer" value="{{option1}}">&nbsp;Option 1</label>	
+				</div>
+				<div class="col">
+					<label class="button button-dark center"><input type="radio" name="answer" value="{{option2}}"> &nbsp;Option 2</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label class="button button-dark center"><input type="radio" name="answer" value="{{option1}}{{option2}}"> &nbsp;Both</label>	
+				</div>
+				<div class="col">
+					<label class="button button-dark center"><input type="radio" name="answer" value="null">None</label>
+				</div>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="col center">
+				<button ng-click="checkAnswer()" class="button button-outline button-calm" ng-show="answerMode">Submit</button>
+			</div>
+			<div class="col">
+				<div ng-show="!answerMode">
+					<button ng-click="nextQuestion()" class="button button-positive">Next</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</ul>
+</div>
+
+<div class="card" ng-show="quizOver">
+	<div class="item item-text-wrap">
+		<h2>Your trait scores</h2>
+		<div class="list list-inset">
+	    <div class="item">
+	      Realistic : {{realistic}}
+	    </div>
+	    <div class="item">
+	      Investigative : {{investigative}}
+	    </div>
+	    <div class="item">
+	      Artistic : {{artistic}}
+	    </div>
+	    <div class="item">
+	      enterprising : {{enterprising}}
+	    </div>
+	    <div class="item">
+	      conventional : {{conventional}}
+	    </div>
+	    <div class="item">
+	      social : {{social}}
+	    </div>
+	</div>
+	</div>
+</div>
+
+<div class="card" ng-show="quizOver">
+	<div class="row">
+		<div class="col"><button class="button button-energized button-outline center">Career options</button></div>
+		<div class="col"><button class="button button-energized button-outline center" ng-click="reset()">Try Again</button></div>
+	</div>
+</div>
+
+</div>
+
+<div class="intro center" ng-show="!inProgress" style="margin-top: 25%;">
+	<img src="img/logo.png" width="40%"/>
+	<h3 style="color: #fff">Want a career option?</h3>
+	<button id="startQuiz" class="button button-light" ng-click="start()">Let's begin</button>
+</div>
